@@ -1,0 +1,696 @@
+{
+  "experiments" : {
+    "difficulty" : {
+      "response_matrix" : {
+        "active" : false,
+        "num_models" : 2000
+      },
+      "irt" : {
+        "active" : false,
+        "method" : "2PL",
+		    "n_cycles" : 300,
+		    "num_models" : 2000,
+		    "num_bins" : 5
+      }
+    },
+    "noisy_datasets" : {
+      "active" : false,
+      "instance_proportions" : [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+		  "magnitude" : 0.2
+    },
+    "training" : {
+      "active" : false
+    },
+    "predictions" : {
+      "active" : false,
+      "learn_and_predict" : false
+    },
+    "predictions_per_bin" : {
+      "active" : false
+    },
+    "process_predictions" : {
+      "active" : false,
+      "instance_proportions" : [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    },
+    "taxonomy" : {
+      "datasets_sizes" : {
+        "ALL" : false,
+        "big_instances" : true,
+        "big_attributes" : false,
+        "small_instances" : false,
+        "small_attributes" : false
+      },
+      "instance_proportions" : [0.05, 0.10, 0.15, 0.2, 0.25, 0.30, 0.40, 0.50],
+      "aggregate_curves" : {
+        "active" : true,
+        "methods" : {
+          "average" : false,
+          "standard_deviation" : false,
+          "difference_across_noise" : false,
+          "difference_across_bins" : false,
+          "difference_across_noise_and_bins" : true
+        }
+      },
+      "clustering" : {
+        "active" : true,
+        "num_clusters" : 3,
+        "type" : {
+          "hierarchical" : true,
+          "agglomerative" : false
+        }
+      },
+      "cluster_prototypes" : {
+        "active" : true
+      }
+    }
+  },
+  "analytics" : {
+    "datasets" : {
+      "active" : false,
+      "plot_params" : {
+        "doc" : {
+          "format" : "pdf",
+          "width" : 15,
+          "height" : 15,
+          "res" : 200
+        },
+        "title" : {
+          "text" : "Class distribution of original datasets",
+          "size" : 20
+        },
+        "axis" : {
+          "x" : {
+            "title" : {
+              "text" : "Class",
+              "size" : 15
+            }
+          },
+          "y" : {
+            "title" : {
+              "text" : "Frequency",
+              "size" : 15
+            }
+          }
+        },
+        "subplots_title_size" : 17,
+        "num_cols" : 5
+      }
+    },
+    "irt" : {
+      "response_matrix" : {
+        "active" : false,
+        "plot_params" : {
+        "doc" : {
+          "format" : "pdf",
+          "width" : 15,
+          "height" : 15,
+          "res" : 200
+        },
+        "title" : {
+          "text" : "Class distribution of original datasets",
+          "size" : 20
+        },
+        "axis" : {
+          "x" : {
+            "title" : {
+              "text" : "Class",
+              "size" : 20 
+            },
+            "text" : {
+              "size" : 16
+            }
+          },
+          "y" : {
+            "title" : {
+              "text" : "Frequency",
+              "size" : 16
+            }
+          }
+        },
+        "subplots_title_size" : 16,
+        "num_cols" : 2
+      }
+      },
+      "difficulty" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 5,
+            "height" : 7,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "Difficulty distribution",
+            "size" : 16
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Frequency",
+                "size" : 16
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "Difficulty",
+              "size" : 16
+            },
+            "text_size" : 16
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 2
+        }
+      }
+    },
+    "evaluations" : {
+      "active" : false 
+    },
+    "curves" : {
+      "SCC_Kappa" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 40,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "SCC (Kappa)",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Kappa",
+                "size" : 16
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "% Noisy inst.",
+              "size" : 15
+            },
+            "text_size" : 16
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 9,
+          "num_pages" : 1,
+          "plots_per_page" : 8
+        }
+      },
+      "SCC_Kappa_by_cluster" : {
+        "active" : true,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 40,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "SCC (Kappa)",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 13
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Kappa",
+                "size" : 13
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "% Noisy inst.",
+              "size" : 10
+            },
+            "text_size" : 8
+          },
+          "subplots_title_size" : 15,
+          "num_cols" : 9,
+          "num_pages" : 1
+        }
+      },
+      "SCC_Kappa_by_prototype" : {
+        "active" : true,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 8,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "SCC (Kappa)",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 18
+              },
+              "text" : {
+                "size" : 14
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Kappa",
+                "size" : 18
+              },
+              "text" : {
+                "size" : 14
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "% Noisy inst.",
+              "size" : 10
+            },
+            "text_size" : 8
+          },
+          "subplots_title_size" : 20,
+          "num_cols" : 8,
+          "num_pages" : 1
+        }
+      },
+      "SCC_Acc" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 40,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "SCC (Accuracy)",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Accuracy",
+                "size" : 16
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "% Noisy inst.",
+              "size" : 16
+            },
+            "text_size" : 16
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 9,
+          "num_pages" : 3
+        }
+      },
+      "CCC_Kappa" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 40,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "CCC (Kappa)",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Kappa",
+                "size" : 16
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "% Noisy inst.",
+              "size" : 16
+            },
+            "text_size" : 16
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 9,
+          "num_pages" : 3
+        }
+      },
+      "CCC_Acc" :  {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 40,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "CCC (Accuracy)",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Accuracy",
+                "size" : 16
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "% Noisy inst.",
+              "size" : 16
+            },
+            "text_size" : 16
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 9,
+          "num_pages" : 3
+        }
+      },
+      "SCC_avg" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 25,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "Average SCC per model",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Num. Bin",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Average (with SD) Kappa",
+                "size" : 16
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "% Noisy inst.",
+              "size" : 16
+            },
+            "text_size" : 16 
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 9,
+          "num_pages" : 1
+        }
+      },
+      "CCC" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 30,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "CCC",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Difficulty",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Accuracy",
+                "size" : 16
+              }
+            }
+          },
+          "legend" : {
+            "title" : {
+              "text" : "Model",
+              "size" : 16
+            },
+            "text_size" : 16
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 3,
+          "num_pages" : 1
+        }
+      }
+    },
+    "class_distributions" : {
+      "real" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 30,
+            "height" : 40,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "Real class distribution per difficulty bin",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Class",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Class frequency",
+                "size" : 16
+              }
+            }
+          },
+          "subplots_title_size" : 16,
+          "num_cols" : 5,
+          "num_pages" : 1
+        }
+      },
+      "predicted" : {
+        "active" : false,
+        "plot_params" : {
+          "doc" : {
+            "format" : "pdf",
+            "width" : 50,
+            "height" : 150,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "Class distribution of model predictions",
+            "size" : 20
+          },
+          "axis" : {
+            "x" : {
+              "title" : {
+                "text" : "Class",
+                "size" : 16
+              }
+            },
+            "y" : {
+              "title" : {
+                "text" : "Class frequency",
+                "size" : 16
+              }
+            }
+          },
+          "subplots_title_size" : 13,
+          "num_cols" : 10,
+          "num_pages" : 2,
+          "num_plots_per_page" : 8
+        }
+      }
+    },
+    "taxonomy" : {
+      "clustering" : {
+        "active" : true,
+        "plot_params" : {
+          "hierarchical" : {
+            "doc" : {
+            "format" : "pdf",
+            "width" : 5,
+            "height" : 7,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "Model families by robustness",
+            "size" : 20
+          },
+          "labels_size" : 0.5, 
+          "n_clusters" : 3
+          },
+          "agglomerative" : {
+            "doc" : {
+            "format" : "pdf",
+            "width" : 5,
+            "height" : 7,
+            "res" : 200
+          },
+          "title" : {
+            "text" : "Model families by robustness",
+            "size" : 20
+          },
+          "labels_size" : 1.5
+          }
+        }
+      },
+      "cluster_quality" : {
+        "active" : true,
+        "num_clusters" : 10,
+        "plot_params" : {
+          "title" : {
+            "text" : "Optimal number of clusters",
+            "size" : 20
+          }
+        }
+      }
+    } 
+  },
+  "datasets" : {
+    "analcatdata_dmft" : 3560,
+    "artificial-characters" : 14964,
+    "cnae-9" : 9981,
+    "first-order-theorem-proving" : 9985,
+    "gas-drift" : 9986,
+	  "GesturePhaseSegmentationProcessed" : 14969,
+	  "gina_prior2" : 3894,
+	  "letter" : 1886,
+	  "mfeat-fourier" : 14,
+    "mfeat-karhunen" : 16,
+    "mfeat-morphological" : 18,
+    "mfeat-zernike" : 22,
+    "nursery" : 26,
+    "optdigits" : 1792,
+    "page-blocks" : 30,
+    "satimage" : 2074,
+    "segment" : 146822,
+    "spambase" : 145979,
+    "texture" : 125922,
+    "vowel" : 3022,
+	  "wall-robot-navigation" : 9942,
+	  "waveform-5000" : 58,
+	  "yeast" : 2073
+  },
+	"models" : {
+	  "multinom" : "MLR",
+    "mlp_7" : "MLP",
+	  "fda_prune17" : "FDA",
+    "simpls_ncomp3" : "PLS",
+    "rda" : "RDA",
+    "knn_k3" : "3NN",
+    "lvq_3" : "LVQ",
+    "svmPoly_d_2_s_0.1" : "SVM",
+    "gbm_3_50" : "GBM",
+    "RPART" : "RPART",
+    "JRip" : "JRip",
+    "ctree_c0.05" : "CI_T",
+    "C5.0": "C5.0",
+    "PART" : "PART",
+    "rf_mtry64" : "RF",
+    "NB" : "NB",
+    "rbf" : "RBF",
+    "rfRules_mtry64" : "RFRules"
+	},
+	"paths" : {
+		"basedir" : "runs/falco",
+		"logs" : "logs",
+		"locks" : "locks",
+		"tmp" : "tmp",
+		"data" : {
+	    "datasets" : "data/datasets",
+	    "runs" : "data/runs",
+  		"models" : "data/models",
+  		"predictions" : "data/predictions",
+  		"noisy_datasets" : "data/noisy_datasets",
+  		"irt" : "data/irt_sqrt",
+  		"evaluations" : "data/evaluations",
+  		"class_distributions" : "data/class_distributions",
+  		"curves" : "data/curves_last",
+  		"predictions_per_bin" : "data/predictions_per_bin_last",
+  		"aggregate_curves" : "data/taxonomy_with_names/aggregated_curves",
+  		"hierarchical" : "data/taxonomy_with_names/hierarchical",
+  		"agglomerative" : "data/taxonomy_with_names/agglomerative",
+  		"cluster_prototypes" : "data/taxonomy_with_names/cluster_prototypes"
+		},
+		"analytics" : {
+		  "datasets" : "analytics/datasets",
+		  "runs" : "analytics/runs",
+		  "evaluations" : "analytics/evaluation",
+		  "irt" : "analytics/irt_reduced",
+		  "models" : "analytics/models",
+		  "noisy_predictions" : "analytics/noisy_predictions",
+		  "noisy_datasets" : "analytics/noisy_datasets",
+		  "curves" : "analytics/curves_pape_reduced/",
+		  "curves_by_cluster" : "analytics/curves_paper/by_clusters",
+		  "class_distributions" : "analytics/class_distributions/",
+		  "taxonomy" : "analytics/taxonomy_with_names",
+		  "aggregate_curves" : "analytics/taxonomy_with_names/aggregated_curves",
+  		"hierarchical" : "analytics/taxonomy_with_names/hierarchical_5",
+  		"agglomerative" : "analytics/taxonomy_with_names/agglomerative",
+  		"cluster_quality" : "analytics/taxonomy_with_names/cluster_quality_5",
+		  "cluster_prototypes" : "analytics/taxonomy_with_names/cluster_prototypes",
+		  "curves_prototypes" : "analytics/taxonomy_with_names/curves_prototypes",
+		  "CCC" : "analytics/CCC"
+		}
+	}
+}
